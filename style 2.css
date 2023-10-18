@@ -1,0 +1,14 @@
+html {background: linear-gradient(to left top, #520000, black);
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-repeat: repeat-y;
+      display: flex; color: #e7e7e7e7;}
+
+#T1 {text-decoration: underline;
+     color: red;}
+
+#Img {height: 50%; width: 50%;}
+
+#A1 {color: #e7e7e7e7;}
+
+a {color: orange;}
