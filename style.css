@@ -8,6 +8,13 @@ html {height: 100%;
 
 #Img {height: 50%; width: 50%;}
 
+.P1 {border: solid 2px black;
+     box-shadow: 0px 0px 35px black;}
+
 #A1 {color: #e7e7e7e7;}
 
 a {color: orange;}
+
+@media screen and (min-width: 900px){
+  #Img {height: 15%; width: 15%;}
+}
