@@ -1,21 +1,38 @@
-html {height: 100%;
-      background: linear-gradient(to left top, purple, black);
+html {background: linear-gradient(90deg, #1c1400 0%, purple 50%, #1c1400 100%);
+      width: 100%;
       font-family: 'Poppins', sans-serif;
-      background-repeat: no-repeat;
+      background-repeat: repeat-y;
+      background-size: 200% 200%;
+      animation: gradientBG 20s ease infinite;
       background-color: purple;
       cursor: default;
       display: flex; color: #e7e7e7e7;}
 
+hr {box-shadow: 0px 0px 5px orange; background: linear-gradient(to right, transparent, orange, transparent); border: none; height: 1px; animation: pulse 2s infinite;}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 5px orange; }
+    50% { box-shadow: 0 0 15px orange; }
+}
+
 #T1 {color: #ed8300b7; text-decoration: underline; text-shadow: 0px 0px 15px orange}
 
-#Img {height: 50%; width: 50%;}
+#Img {height: 50%; width: 50%; border: outset 3px orange; background: linear-gradient(90deg, #1c1400 0%, orange 50%, #1c1400 100%);
+      box-shadow: 0px 0px 35px black; transition: filter 1s, box-shadow 3s;}
 
-.P1 {border: solid 2px black;
-     box-shadow: 0px 0px 35px black;}
+#Img:hover {filter: brightness(1.2); box-shadow: 0px 0px 35px yellow; transition: filter 1s, box-shadow 3s;}
 
 #A1 {color: #e7e7e7e7;}
 
-a {color: orange;}
+a {color: orange; text-decoration: none; text-shadow: 0px 0px 5px yellow; transition: color 1s, text-shadow 1s;}
+
+a:hover {text-shadow: 0px 0px 15px yellow; color: yellow; transition: color 1s, text-shadow 1s;}
 
 @media screen and (min-width: 900px){
   #Img {height: 15%; width: 15%;}
