@@ -1,39 +1,400 @@
-html {background: linear-gradient(90deg, #001c03 0%, #520000 50%, #001c03 100%);
-      width: 100%;
-      font-family: 'Poppins', sans-serif;
-      background-repeat: repeat-y;
-      background-size: 200% 200%;
-      animation: gradientBG 20s ease infinite;
-      background-color: #520000;
-      cursor: default;
-      display: flex; color: #e7e7e7e7;}
-
-hr {box-shadow: 0px 0px 5px red; background: linear-gradient(to right, transparent, red, transparent); border: none; height: 1px; animation: pulse 2s infinite;}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* CSS Reset and Base Styles for Character Pages */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 5px red; }
-    50% { box-shadow: 0 0 15px red; }
+html {
+  background: linear-gradient(45deg, #001c03 0%, #2e0000 25%, #520000 50%, #7a0000 75%, #001c03 100%);
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-size: 400% 400%;
+  animation: bloodGradient 30s ease infinite;
+  background-color: #520000;
+  cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="18" font-size="16">🔪</text></svg>'), auto;
+  color: #e7e7e7;
+  overflow-x: hidden;
 }
 
-#T1 {color: red; text-shadow: 0px 0px 15px red}
+body {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-#Img {height: 50%; width: 50%; border: outset 3px darkred; background: linear-gradient(90deg, #001c03 0%, #520000 50%, #001c03 100%);
-      box-shadow: 0px 0px 35px black; transition: filter 1s, box-shadow 3s;}
+/* Enhanced Animations for Character Pages */
+@keyframes bloodGradient {
+  0% { background-position: 0% 50%; filter: hue-rotate(0deg) contrast(1); }
+  25% { background-position: 100% 50%; filter: hue-rotate(-5deg) contrast(1.1); }
+  50% { background-position: 100% 50%; filter: hue-rotate(0deg) contrast(1); }
+  75% { background-position: 0% 50%; filter: hue-rotate(5deg) contrast(1.1); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg) contrast(1); }
+}
 
-#Img:hover {filter: brightness(1.2); box-shadow: 0px 0px 35px red; transition: filter 1s, box-shadow 3s;}
+@keyframes bloodPulse {
+  0%, 100% { box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000; }
+  50% { box-shadow: 0 0 25px #ff0000, 0 0 35px #ff0000, 0 0 45px #ff0000; }
+}
 
-#A1 {color: white;}
+@keyframes sinisterFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(-15px) rotate(-1deg) scale(1.02); }
+  66% { transform: translateY(-8px) rotate(1deg) scale(1.01); }
+}
 
-a {color: orange; text-decoration: none; text-shadow: 0px 0px 5px yellow; transition: color 1s, text-shadow 1s;}
+@keyframes menacingShake {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+  20% { transform: translate(3px, 2px) rotate(0.5deg); }
+  30% { transform: translate(-2px, 3px) rotate(-0.5deg); }
+  40% { transform: translate(2px, -3px) rotate(0.5deg); }
+  50% { transform: translate(-3px, 2px) rotate(-0.5deg); }
+  60% { transform: translate(3px, -2px) rotate(0.5deg); }
+  70% { transform: translate(-2px, -3px) rotate(-0.5deg); }
+  80% { transform: translate(2px, 3px) rotate(0.5deg); }
+  90% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+}
 
-a:hover {text-shadow: 0px 0px 15px yellow; color: yellow; transition: color 1s, text-shadow 1s;}
+@keyframes drip {
+  0% { transform: translateY(-10px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(50px); opacity: 0; }
+}
 
-@media screen and (min-width: 900px){
-  #Img {height: 15%; width: 15%;}
+/* Main Container */
+.killer-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header Styles */
+.killer-header {
+  margin-bottom: 40px;
+}
+
+.killer-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin-bottom: 20px;
+}
+
+.bloodstained-text {
+  color: #ff1744;
+  text-shadow: 0px 0px 20px #ff0000, 2px 2px 0px #8b0000, 0px 0px 30px #ff0000;
+  font-family: 'Creepster', cursive;
+  display: block;
+  animation: sinisterFloat 5s ease-in-out infinite;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.bloodstained-text:hover {
+  animation: menacingShake 0.6s ease-in-out;
+  text-shadow: 0px 0px 30px #ff0000, 3px 3px 0px #8b0000, -2px -2px 0px #ff6666;
+  filter: drop-shadow(0 0 10px #ff0000);
+}
+
+.bloodstained-text::after {
+  content: '🩸';
+  position: absolute;
+  right: -30px;
+  top: 0;
+  animation: drip 3s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Progress Indicator for Character Pages */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.progress-indicator .step,
+.progress-indicator .current-step {
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  filter: grayscale(100%) brightness(0.5);
+  opacity: 0.4;
+}
+
+.progress-indicator .current-step.active {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  animation: bloodPulse 2s infinite;
+  transform: scale(1.2);
+  text-shadow: 0 0 15px #ff0000;
+}
+
+/* Blood Dividers */
+.blood-divider {
+  height: 3px;
+  background: linear-gradient(to right, transparent, #ff0000, #8b0000, #ff0000, transparent);
+  margin: 30px 0;
+  animation: bloodPulse 2.5s infinite;
+  position: relative;
+  border-radius: 2px;
+}
+
+.blood-divider::before {
+  content: '🗡️';
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  background: #001c03;
+  padding: 0 10px;
+  animation: sinisterFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px #ff0000);
+}
+
+/* Character Image Styles */
+.character-image, .gif-container {
+  margin: 40px 0;
+}
+
+#Img, .character-img {
+  max-width: min(80%, 400px);
+  height: auto;
+  border: 4px outset #8b0000;
+  background: linear-gradient(135deg, #001c03 0%, #520000 50%, #8b0000 100%);
+  box-shadow: 0px 0px 40px rgba(0,0,0,0.9), 0px 0px 20px #ff0000;
+  transition: all 1s ease;
+  border-radius: 15px;
+  animation: sinisterFloat 6s ease-in-out infinite;
+  filter: contrast(1.1) brightness(0.95);
+}
+
+#Img:hover, .character-img:hover {
+  filter: brightness(1.2) contrast(1.2) saturate(1.1);
+  box-shadow: 0px 0px 60px rgba(255,0,0,0.8), 0px 0px 30px #ff0000, inset 0 0 20px rgba(255,0,0,0.3);
+  transform: scale(1.08) rotate(-1deg);
+  border-color: #ff0000;
+}
+
+.killer-gif {
+  max-width: min(70%, 350px);
+  height: auto;
+  border: 3px solid #8b0000;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.6);
+  filter: contrast(1.1) saturate(1.1);
+}
+
+/* Text Styles for Character Pages */
+.character-story {
+  margin: 40px 0;
+  padding: 35px;
+  background: linear-gradient(135deg, rgba(0, 28, 3, 0.9), rgba(82, 0, 0, 0.8));
+  border: 2px solid rgba(255, 0, 0, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+.character-story::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0000, #8b0000, #ff0000);
+  border-radius: 15px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.story-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-shadow: 0 0 8px rgba(255,255,255,0.3);
+  margin-bottom: 15px;
+}
+
+.menacing-quote {
+  color: #ff6666;
+  font-style: italic;
+  font-weight: 600;
+  text-shadow: 0 0 10px #ff0000;
+  border-left: 3px solid #ff0000;
+  padding-left: 15px;
+  margin-top: 20px;
+  animation: bloodPulse 4s infinite;
+}
+
+/* Navigation Styles for Character Pages */
+.navigation-controls {
+  margin-top: 50px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: linear-gradient(45deg, #8b0000, #ff0000);
+  border: 2px solid #ff0000;
+  padding: 15px 25px;
+  border-radius: 25px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(255,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-btn:hover::before {
+  left: 100%;
+}
+
+.nav-btn:not(.disabled):hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(255,0,0,0.6);
+  background: linear-gradient(45deg, #ff0000, #ff3333);
+  border-color: #ff3333;
+}
+
+.nav-btn.disabled {
+  background: #333;
+  border-color: #555;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nav-btn.prev-btn {
+  background: linear-gradient(45deg, #666, #999);
+  border-color: #999;
+}
+
+.nav-btn.prev-btn:not(.disabled):hover {
+  background: linear-gradient(45deg, #999, #bbb);
+  border-color: #bbb;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+.journey-status {
+  color: #ff6666;
+  font-weight: 500;
+  text-shadow: 0 0 8px #ff0000;
+}
+
+/* Floating Blood Drops */
+.floating-blood {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blood-drop {
+  position: absolute;
+  color: #ff0000;
+  font-size: 1.5rem;
+  opacity: 0.4;
+  animation: drip 8s ease-in-out infinite;
+}
+
+.blood-drop1 {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.blood-drop2 {
+  top: 20%;
+  right: 20%;
+  animation-delay: 3s;
+}
+
+.blood-drop3 {
+  top: 30%;
+  left: 80%;
+  animation-delay: 6s;
+}
+
+/* Cursor Trail Effect for Character Pages */
+.cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 1rem;
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.3) translateY(-30px); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  .progress-indicator {
+    gap: 8px;
+  }
+  
+  .progress-indicator .step,
+  .progress-indicator .current-step {
+    font-size: 1.1rem;
+  }
+  
+  .character-story {
+    padding: 25px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #Img, .character-img {
+    max-width: 350px;
+  }
 }
