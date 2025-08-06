@@ -1,37 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IzaacCoding36">
-  <meta http-equiv="X-UA-Compatible" content="edge">
-  <meta name="viewport" content="width=device-width, initial-scale= 1.0">
-  <meta name="description" content="Esse site foi criado para meu projeto de empreendedorismo">
-  <meta name="keywords" content="HTML, CSS, Halloween">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <link rel="icon" type="image/png" href="Img/favicon.ico">
-  <base href="index.html">
-  <title>Assassinos de Halloween - Início</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="IzaacCoding36">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore as histórias dos assassinos mais assustadores do cinema em uma jornada aterrorizante pelo mundo do Halloween">
+    <meta name="keywords" content="HTML, CSS, Halloween, Terror, Horror, Assassinos, Cinema">
+    <meta name="theme-color" content="#1c1400">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Creepster&display=swap" rel="stylesheet">
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="icon" type="image/png" href="Img/favicon.ico">
+    <title>🎃 Assassinos de Halloween - Uma Jornada Assombrada</title>
   </head>
   <body>
-    <center>
-    <div>
-    <h1 id="T1">Halloween</h1>
-    <hr>
-    <img id="Img" alt="Abóbora" src="Img/Pumpkin.png">
-    <hr>
-    <p id="A1">Olá! Este e mais outros cartazes que estão espalhados por aí estarão mostrando histórias dos mais populares assassinos do cinema! Tenha bons doces e travessuras! </p>
-    <hr>
-    <img id="Img" alt="Halloween gif" src="https://media.tenor.com/GY2QoQivuqMAAAAC/costume-halloween.gif">
-    <hr>
-    <a href="Michael Myers.html">Próximo ></a>
+    <main class="halloween-container">
+      <header class="spooky-header">
+        <h1 id="T1" class="creepy-title">
+          <span class="glitch-text">Halloween</span>
+          <span class="subtitle">Uma Jornada Assombrada</span>
+        </h1>
+        <div class="progress-indicator">
+          <span class="current-step active">🎃</span>
+          <span class="step">👹</span>
+          <span class="step">🔪</span>
+          <span class="step">😱</span>
+          <span class="step">🤡</span>
+          <span class="step">👻</span>
+          <span class="step">🧸</span>
+          <span class="step">⛓️</span>
+          <span class="step">🎭</span>
+          <span class="step">📍</span>
+        </div>
+      </header>
+
+      <section class="content-area">
+        <div class="spooky-divider"></div>
+        
+        <figure class="main-image">
+          <img id="Img" alt="Abóbora assombrada de Halloween" src="Img/Pumpkin.png" class="floating-image">
+        </figure>
+        
+        <div class="spooky-divider"></div>
+        
+        <article class="intro-text">
+          <p id="A1" class="haunted-text">
+            <span class="spooky-word">Olá</span>, <span class="emphasis">alma corajosa</span>! 
+            Você está prestes a embarcar em uma jornada pelos <span class="emphasis">pesadelos mais sombrios</span> 
+            do cinema. Estes cartazes malditos revelarão as histórias dos 
+            <span class="blood-text">assassinos mais temidos</span> de todos os tempos... 
+            <br><br>
+            <span class="warning-text">⚠️ Tenha bons doces... você vai precisar de coragem! ⚠️</span>
+          </p>
+        </article>
+        
+        <div class="spooky-divider"></div>
+        
+        <figure class="gif-container">
+          <img id="halloween-gif" alt="Gif assombrado de Halloween" src="https://media.tenor.com/GY2QoQivuqMAAAAC/costume-halloween.gif" class="spooky-gif">
+        </figure>
+        
+        <div class="spooky-divider"></div>
+      </section>
+
+      <nav class="navigation-controls">
+        <div class="nav-buttons">
+          <button class="nav-btn disabled" disabled>
+            <span class="nav-icon">👻</span>
+            <span class="nav-text">Anterior</span>
+          </button>
+          <a href="Michael Myers.html" class="nav-btn next-btn">
+            <span class="nav-text">Iniciar Jornada</span>
+            <span class="nav-icon">👹</span>
+          </a>
+        </div>
+        <div class="journey-status">
+          <span class="status-text">Página 1 de 10</span>
+        </div>
+      </nav>
+    </main>
+
+    <div class="floating-spirits">
+      <div class="spirit spirit1">👻</div>
+      <div class="spirit spirit2">🦇</div>
+      <div class="spirit spirit3">💀</div>
     </div>
-    </center>
+
+    <script>
+      // Add spooky cursor trail effect
+      document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.95) {
+          const trail = document.createElement('div');
+          trail.className = 'cursor-trail';
+          trail.style.left = e.clientX + 'px';
+          trail.style.top = e.clientY + 'px';
+          trail.innerHTML = '🕷️';
+          document.body.appendChild(trail);
+          setTimeout(() => trail.remove(), 1000);
+        }
+      });
+
+      // Add random glitch effect to title
+      setInterval(() => {
+        const glitchText = document.querySelector('.glitch-text');
+        if (Math.random() > 0.8) {
+          glitchText.style.textShadow = '2px 0 #ff0000, -2px 0 #00ffff';
+          setTimeout(() => {
+            glitchText.style.textShadow = '0px 0px 15px orange';
+          }, 100);
+        }
+      }, 3000);
+    </script>
   </body>
 </html>

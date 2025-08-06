@@ -1,39 +1,369 @@
-html {background: linear-gradient(90deg, #1c1400 0%, purple 50%, #1c1400 100%);
-      width: 100%;
-      font-family: 'Poppins', sans-serif;
-      background-repeat: repeat-y;
-      background-size: 200% 200%;
-      animation: gradientBG 20s ease infinite;
-      background-color: purple;
-      cursor: default;
-      display: flex; color: #e7e7e7e7;}
+/* CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-hr {box-shadow: 0px 0px 5px orange; background: linear-gradient(to right, transparent, orange, transparent); border: none; height: 1px; animation: pulse 2s infinite;}
+html {
+  background: linear-gradient(45deg, #1c1400 0%, #4a148c 25%, #6a1b9a 50%, #8e24aa 75%, #1c1400 100%);
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-size: 400% 400%;
+  animation: spookyGradient 25s ease infinite;
+  background-color: #1c1400;
+  cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="18" font-size="16">🕷️</text></svg>'), auto;
+  color: #e7e7e7;
+  overflow-x: hidden;
+}
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+body {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Enhanced Animations */
+@keyframes spookyGradient {
+  0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  25% { background-position: 100% 50%; filter: hue-rotate(10deg); }
+  50% { background-position: 100% 50%; filter: hue-rotate(0deg); }
+  75% { background-position: 0% 50%; filter: hue-rotate(-10deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
 }
 
 @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 5px orange; }
-    50% { box-shadow: 0 0 15px orange; }
+  0%, 100% { box-shadow: 0 0 5px orange, 0 0 10px orange; }
+  50% { box-shadow: 0 0 20px orange, 0 0 30px orange, 0 0 40px orange; }
 }
 
-#T1 {color: #ed8300b7; text-decoration: underline; text-shadow: 0px 0px 15px orange}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
 
-#Img {height: 50%; width: 50%; border: outset 3px orange; background: linear-gradient(90deg, #1c1400 0%, orange 50%, #1c1400 100%);
-      box-shadow: 0px 0px 35px black; transition: filter 1s, box-shadow 3s;}
+@keyframes spookySway {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(5px) translateY(-3px); }
+  75% { transform: translateX(-5px) translateY(3px); }
+}
 
-#Img:hover {filter: brightness(1.2); box-shadow: 0px 0px 35px yellow; transition: filter 1s, box-shadow 3s;}
+@keyframes glitchShake {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-2px, -1px); }
+  20% { transform: translate(2px, 1px); }
+  30% { transform: translate(-1px, 2px); }
+  40% { transform: translate(1px, -2px); }
+  50% { transform: translate(-2px, 1px); }
+  60% { transform: translate(2px, -1px); }
+  70% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+  90% { transform: translate(-2px, -1px); }
+}
 
-#A1 {color: #e7e7e7e7;}
+/* Main Container */
+.halloween-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
 
-a {color: orange; text-decoration: none; text-shadow: 0px 0px 5px yellow; transition: color 1s, text-shadow 1s;}
+/* Header Styles */
+.spooky-header {
+  margin-bottom: 40px;
+}
 
-a:hover {text-shadow: 0px 0px 15px yellow; color: yellow; transition: color 1s, text-shadow 1s;}
+.creepy-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 20px;
+}
 
-@media screen and (min-width: 900px){
-  #Img {height: 15%; width: 15%;}
+.glitch-text {
+  color: #ed8300;
+  text-decoration: underline;
+  text-shadow: 0px 0px 15px orange, 2px 2px 0px #ff6600;
+  font-family: 'Creepster', cursive;
+  display: block;
+  animation: spookySway 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.glitch-text:hover {
+  animation: glitchShake 0.5s ease-in-out;
+  text-shadow: 0px 0px 25px orange, 2px 2px 0px #ff6600, -2px -2px 0px #ff0000;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #ffab40;
+  font-weight: 300;
+  margin-top: 10px;
+  text-shadow: 0 0 10px orange;
+  opacity: 0.9;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.progress-indicator .step,
+.progress-indicator .current-step {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.progress-indicator .current-step.active {
+  filter: grayscale(0%);
+  opacity: 1;
+  animation: pulse 2s infinite;
+  transform: scale(1.2);
+}
+
+/* Spooky Dividers */
+.spooky-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, orange, transparent);
+  margin: 30px 0;
+  animation: pulse 2s infinite;
+  position: relative;
+}
+
+.spooky-divider::before {
+  content: '🦇';
+  position: absolute;
+  left: 50%;
+  top: -12px;
+  transform: translateX(-50%);
+  background: #1c1400;
+  padding: 0 10px;
+  animation: spookySway 3s ease-in-out infinite;
+}
+
+/* Image Styles */
+.main-image, .gif-container {
+  margin: 40px 0;
+}
+
+#Img, .floating-image {
+  max-width: min(80%, 400px);
+  height: auto;
+  border: 3px outset orange;
+  background: linear-gradient(90deg, #1c1400 0%, orange 50%, #1c1400 100%);
+  box-shadow: 0px 0px 35px rgba(0,0,0,0.8), 0px 0px 15px orange;
+  transition: all 1s ease;
+  border-radius: 15px;
+  animation: float 4s ease-in-out infinite;
+}
+
+#Img:hover, .floating-image:hover {
+  filter: brightness(1.3) contrast(1.1);
+  box-shadow: 0px 0px 50px rgba(255,255,0,0.7), 0px 0px 25px orange;
+  transform: scale(1.05) rotate(1deg);
+}
+
+.spooky-gif {
+  max-width: min(60%, 300px);
+  height: auto;
+  border: 2px solid orange;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,165,0,0.5);
+  filter: hue-rotate(10deg);
+}
+
+/* Text Styles */
+.intro-text {
+  margin: 40px 0;
+  padding: 30px;
+  background: rgba(28, 20, 0, 0.8);
+  border: 2px solid rgba(255, 165, 0, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.haunted-text {
+  color: #e7e7e7;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+.spooky-word {
+  color: #ff6600;
+  font-weight: 600;
+  text-shadow: 0 0 10px orange;
+}
+
+.emphasis {
+  color: #ffab40;
+  font-weight: 600;
+  text-shadow: 0 0 8px orange;
+}
+
+.blood-text {
+  color: #ff1744;
+  font-weight: 700;
+  text-shadow: 0 0 10px #ff1744;
+  animation: pulse 3s infinite;
+}
+
+.warning-text {
+  display: block;
+  color: #ff9800;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  animation: spookySway 2s ease-in-out infinite;
+}
+
+/* Navigation Styles */
+.navigation-controls {
+  margin-top: 50px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: linear-gradient(45deg, #ff6600, #ff9800);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 25px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,102,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn:not(.disabled):hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255,102,0,0.5);
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+}
+
+.nav-btn.disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nav-btn.next-btn {
+  background: linear-gradient(45deg, #ff6600, #ff3d00);
+  animation: pulse 2s infinite;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+.journey-status {
+  color: #ffab40;
+  font-weight: 500;
+  text-shadow: 0 0 5px orange;
+}
+
+/* Floating Spirits */
+.floating-spirits {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spirit {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: spookySway 6s ease-in-out infinite;
+}
+
+.spirit1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.spirit2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.spirit3 {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+/* Cursor Trail Effect */
+.cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 1rem;
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5) translateY(-20px); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  .progress-indicator {
+    gap: 10px;
+  }
+  
+  .progress-indicator .step,
+  .progress-indicator .current-step {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #Img, .floating-image {
+    max-width: 300px;
+  }
 }
